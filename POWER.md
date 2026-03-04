@@ -130,6 +130,7 @@ O padrão permite versionamento automático via Semantic Release, geração auto
 4. Sem ponto final no subject
 5. Máximo 72 caracteres no subject
 6. Breaking changes explícitos: use `!` após type E/OU footer `BREAKING CHANGE:`
+7. **Issue obrigatória**: Se o usuário NÃO informar uma issue relacionada ao commit, SEMPRE pergunte: "Existe uma issue relacionada a esta alteração?". Se o usuário informar o código da issue (ex: `CRMDEV-12167`), adicione no footer da mensagem de commit a linha: `AFFECTED ISSUES: #CRMDEV-12167`. O código da issue deve ser informado exatamente como o identificador do projeto (ex: `CRMDEV-12167`, `PROJ-456`). Se o usuário responder que não há issue, prossiga normalmente sem o footer.
 
 ### Recomendado
 
@@ -167,7 +168,15 @@ O CHANGELOG é gerado automaticamente:
 Implementa sistema de validação customizada que permite
 aos desenvolvedores criar suas próprias regras de validação.
 
-Closes #123
+AFFECTED ISSUES: #CRMDEV-12167
+```
+
+### Feature sem issue
+```
+:sparkles: feat: adicionar helper de formatação de datas
+
+Adiciona utilitário para padronizar formatação de datas
+em todo o projeto.
 ```
 
 ### Bug Fix (PATCH)
@@ -177,7 +186,7 @@ Closes #123
 Adiciona verificação para prevenir erro quando não há dados
 para exportar.
 
-Fixes #456
+AFFECTED ISSUES: #CRMDEV-12345
 ```
 
 ### Breaking Change (MAJOR)
@@ -258,8 +267,9 @@ WIP
 2. Stage suas mudanças: `git add .`
 3. Escolha o emoji e type apropriado usando as tabelas acima
 4. Escreva o commit seguindo o formato: `:emoji: type: subject`
-5. Valide localmente com commitlint
-6. Push para o repositório
+5. **Pergunte ao usuário se há uma issue relacionada** — se sim, adicione `AFFECTED ISSUES: #<CÓDIGO_DA_ISSUE>` no footer
+6. Valide localmente com commitlint
+7. Push para o repositório
 
 ## Ferramentas Recomendadas
 
